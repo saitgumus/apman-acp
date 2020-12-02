@@ -4,7 +4,7 @@ import utilStyles from "../styles/utils.module.css";
 import Link from "next/link";
 import TabComponent from "../Components/tab";
 
-const name = "Sait";
+const name = "Sait Gümüş";
 export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
