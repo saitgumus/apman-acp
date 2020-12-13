@@ -1,5 +1,6 @@
 //import Alertify from "alertifyjs";
 import { toast } from "react-nextjs-toast";
+export const StringBuilder = require("string-builder");
 
 /**
  * metin değerlerinin doluluğunu kontrol eder.

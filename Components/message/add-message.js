@@ -73,26 +73,29 @@ export default class AddMessage extends React.Component {
   render() {
     return (
       <div style={{ marginTop: "30px" }}>
-        <InputGroup>
-          <Input
-            type="text"
-            value={this.state.messageProperty}
-            onChange={(e) => {
-              this.setState({ messageProperty: e.target.value });
-            }}
-          />
-          <InputGroupAddon addonType="append">
-            <Button
-              color="success"
-              onClick={(e) => {
-                this.selectMessage();
-              }}
-            >
-              Property Sorgula
-            </Button>
-          </InputGroupAddon>
-        </InputGroup>
-        <Form inline>
+        <Form>
+          <FormGroup>
+            <InputGroup>
+              <Input
+                type="text"
+                value={this.state.messageProperty}
+                placeholder="Property Name"
+                onChange={(e) => {
+                  this.setState({ messageProperty: e.target.value });
+                }}
+              />
+              <InputGroupAddon addonType="append">
+                <Button
+                  color="success"
+                  onClick={(e) => {
+                    this.selectMessage();
+                  }}
+                >
+                  Property Sorgula
+                </Button>
+              </InputGroupAddon>
+            </InputGroup>
+          </FormGroup>
           <FormGroup>
             <Label for="property" hidden>
               Property

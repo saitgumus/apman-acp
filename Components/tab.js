@@ -14,6 +14,7 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 import AddMessage from "./message/add-message";
+import AddResourceComponent from "./resource/define-resource";
 
 const TabComponent = (props) => {
   const [activeTab, setActiveTab] = useState("1");
@@ -42,6 +43,16 @@ const TabComponent = (props) => {
               toggle("2");
             }}
           >
+            Kaynak Tanımı
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            className={classnames({ active: activeTab === "3" })}
+            onClick={() => {
+              toggle("3");
+            }}
+          >
             More Tabs
           </NavLink>
         </NavItem>
@@ -56,28 +67,12 @@ const TabComponent = (props) => {
         </TabPane>
         <TabPane tabId="2">
           <Row>
-            <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </CardText>
-                <Button>Go somewhere</Button>
-              </Card>
-            </Col>
-            <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </CardText>
-                <Button>Go somewhere</Button>
-              </Card>
+            <Col sm="12">
+              <AddResourceComponent></AddResourceComponent>
             </Col>
           </Row>
         </TabPane>
+        <TabPane tabId="3"></TabPane>
       </TabContent>
     </div>
   );

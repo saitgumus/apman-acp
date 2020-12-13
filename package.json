@@ -15,9 +15,11 @@
     "postcss-preset-env": "^6.7.0",
     "react": "16.13.1",
     "react-bootstrap": "^1.4.0",
+    "react-checklist": "^1.0.9",
     "react-dom": "16.13.1",
     "react-nextjs-toast": "^1.2.5",
     "reactstrap": "^8.7.1",
+    "string-builder": "^0.1.6",
     "tailwindcss": "^2.0.1"
   }
 }

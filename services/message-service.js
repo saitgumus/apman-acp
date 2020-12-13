@@ -1,7 +1,8 @@
 import { HttpClientServiceInstance } from "./http-client";
+import { MESSAGE_URL } from "./service-common";
 
 export async function getAllMessages() {
-  var url = "http://localhost:3003/messages/getall";
+  var url = MESSAGE_URL + "/getall";
   var data = {};
   await HttpClientServiceInstance.post(url, {})
     .then((response) => {
@@ -13,7 +14,7 @@ export async function getAllMessages() {
 }
 
 export async function saveMessage(author, property, description) {
-  var url = "http://localhost:3003/messages/savemessage";
+  var url = MESSAGE_URL + "/savemessage";
   var data = { author, property, description };
   await HttpClientServiceInstance.post(url, data)
     .then((response) => {
