@@ -84,8 +84,8 @@ export default class AddResourceComponent extends React.Component {
     if (
       IsNullOrEmpty(this.state.name) ||
       IsNullOrEmpty(this.state.description) ||
-      IsNullOrEmpty(this.state.path) ||
-      IsNullOrEmpty(this.state.resourceCode)
+      IsNullOrEmpty(this.state.resourceCode) ||
+      (IsNullOrEmpty(this.state.path) && !this.state.isParent)
     ) {
       ShowStatusError("Kaynak ismi, açıklaması veya path'i boş olamaz.");
       return;
@@ -101,6 +101,7 @@ export default class AddResourceComponent extends React.Component {
     let contract = new ResourceContract();
     contract.name = this.state.name;
     contract.resourceCode = this.state.resourceCode;
+    contract.description = this.state.description;
     contract.iconKey = this.state.iconKey;
     contract.isParent = this.state.isParent;
     contract.actionList = this.state.actionList;
@@ -124,8 +125,11 @@ export default class AddResourceComponent extends React.Component {
   changeCheckList = (selectedItems) => {
     var items = selectedItems;
     var temp = this.state.templateAction;
+    temp.operationClaimIdList = [];
+    temp.operationClaimIdList = items;
     temp.operationClaimId =
       items.length > 1 || items.length === 0 ? 0 : items[0];
+
     this.setState({ templateAction: temp });
   };
 
@@ -190,6 +194,7 @@ export default class AddResourceComponent extends React.Component {
               type="text"
               name="parent"
               id="parent"
+              disabled={this.state.isParent}
               onChange={(e) => {
                 this.setState({ parentCode: e.target.value });
               }}
@@ -202,6 +207,7 @@ export default class AddResourceComponent extends React.Component {
             </Label>
             <Input
               sm={8}
+              disabled={this.state.isParent}
               type="text"
               name="path"
               id="path"
@@ -392,7 +398,7 @@ export default class AddResourceComponent extends React.Component {
                     data={[
                       { id: 2, label: "manager (yönetici)" },
                       { id: 3, label: "member (apartman sakini)" },
-                      { id: 0, label: "Herkes" },
+                      { id: 4, label: "company (firma)" },
                     ]}
                     onSelectedChange={this.changeCheckList}
                   />

@@ -4,6 +4,7 @@ export class ActionContract {
   actionKey;
   resourceId;
   operationClaimId;
+  operationClaimIdList;
 }
 
 export class ResourceContract {

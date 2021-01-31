@@ -25,6 +25,7 @@ const CheckButton = (props) => {
           props.data.map((v, i) => {
             return (
               <Button
+                key={"cxBtn" + i}
                 outline
                 color="primary"
                 onClick={() => onCheckboxBtnClick(v.id)}
